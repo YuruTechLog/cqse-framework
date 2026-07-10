@@ -28,7 +28,7 @@ chat-archives（生ログ）
 | `cokes_definition_layer_proposal.md` | Cokes一言定義の4レイヤー分離統合 提案（M1/M2解消案） | 提案（人間承認待ち） |
 | `framework_draft.md` | 章立て・骨子ドラフト | 未作成（手順書承認後にSonnetが生成） |
 
-## 参照ソース（axis-log-01〜03）
+## 参照ソース（axis-log-01〜04）
 
 **Primary（axis-log-01）:**
 - `docs/knowledge/axis-log-01/approach-axis-framework.md`
@@ -40,3 +40,7 @@ chat-archives（生ログ）
 
 **Tertiary（axis-log-03）:**
 - `docs/knowledge/axis-log-03/integrated_knowledge.md`
+
+**Quaternary（axis-log-04）:**
+- `docs/knowledge/axis-log-04/integrated_knowledge.md`
+  - AXIS5軸確定版・論文裏付けマップ・比喩体系・日本語3原則・コアメッセージ確定版・画像生成拡張
