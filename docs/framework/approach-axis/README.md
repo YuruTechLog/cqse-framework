@@ -26,7 +26,7 @@ chat-archives（生ログ）
 | `opus_prompt_framework_draft.md` | 分析依頼プロンプト（章立て・骨子ドラフト生成用） | 完成 |
 | `sonnet_work_procedure.md` | Sonnet実行用の作業手順書（Fable 5作成。章立てスケルトン確定済み・Cokes接続C1〜C9整理済み） | 完成（人間レビュー待ち） |
 | `cokes_definition_layer_proposal.md` | Cokes一言定義の4レイヤー分離統合 提案（M1/M2解消案） | 提案（人間承認待ち） |
-| `framework_draft.md` | 章立て・骨子ドラフト | 未作成（手順書承認後にSonnetが生成） |
+| `framework_draft.md` | 章立て・骨子ドラフト | ドラフト（人間レビュー待ち） |
 
 ## 参照ソース（axis-log-01〜04）
 
