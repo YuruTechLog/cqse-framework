@@ -177,8 +177,29 @@
   3. 磁力強度マップを使った優先度設定（方向性先固定→境界で範囲限定→抽象度で粒度調整）
   （参照: `axis-log-01/axis-words-magnet-map.md` §実務での使い方）
 
-> **[確定]** 比較軸は人間が定義 → AIリサーチで主要モデル整理。更新運用 = モデルメジャー更新時に同手順で再実施。
-> TODO: 比較軸の定義（人間作業）が先。軸確定後にAIリサーチ実施。
+> **[確定]** 比較軸4本確定・製造元別特性テーブル完成（2026-07-11）。
+> 詳細: `docs/framework/approach-axis/drafts/model_comparison_axis.md`
+>
+> **比較軸4本:**
+> - 軸1: チャンキング粒度（軸語彙の効き感度）
+> - 軸2: 重みづけ思想（合金比率 = RLHF/DPO/Constitutional AI設計）
+> - 軸3: 安全装置チューニング（崩壊閾値・拒否パターン）
+> - 軸4: 日本語特性（英語基盤LLMでの構造的不利）
+>
+> **製造元別設計思想（世代跨いで継承）:**
+> - Anthropic: Constitutional AI系。harmlessness優先・安全装置強め
+> - OpenAI: RLHF helpfulness重視。指示追従バランス型
+> - Microsoft(Copilot): OpenAI基盤+Enterprise実務特化。情報の質・安定性優先。順位付け強化あり
+> - Google: 多言語設計意識。推論深度制御（thinking_level）あり。3.x でエージェント化
+> - Meta(OSS): ベース薄め。ファインチューン依存。安全装置最小
+>
+> **論文裏付け:**
+> - Petrov et al. 2023（arXiv:2305.15425）: BPEトークナイザ英語優遇。最大15倍token差
+> - Wiedemann et al. 2019（arXiv:1909.10430）: sense conflation問題。1:1対応は構造的に不成立
+> - Ouyang et al. 2022（InstructGPT/NeurIPS）: RLHF配合が行動変容の根拠
+> - Bai et al. 2022（arXiv:2212.08073）: Constitutional AI。安全データ比率崩れ→過剰拒否
+>
+> **更新運用:** 製造元の設計思想変更時のみ更新。モデル世代更新では不要。
 
 ---
 
@@ -414,7 +435,7 @@
 
 ## 未解決議題
 
-- **TODO-1** [第5章] モデル別特性テーブルの比較軸定義（人間作業）。軸確定後にAIリサーチで整理。
+- ~~TODO-1~~ [第5章] 比較軸4本確定・製造元別特性テーブル完成（2026-07-11）。詳細: `drafts/model_comparison_axis.md`
 - **Axis実装関連（継続議題）:** プロンプト文化通史の体系的記録（Cokes/Axisが担い手として機能できるか）。（参照: `axis-log-02/integrated_knowledge.md` §未解決議題）
 
 ### 確定済み（クローズ）
