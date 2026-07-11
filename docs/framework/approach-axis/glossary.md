@@ -1,0 +1,149 @@
+# Approach Axis 用語定義集
+
+framework_draft.md・各章ドラフトで使う用語の統一定義。
+用語ブレ防止用。文章化フェーズで迷ったらここを参照。
+
+---
+
+## コア用語
+
+### Approach Axis（アプローチアクシス）
+人間の判断軸の範囲とAIの応答空間の重なり領域を、距離操作によって動的に作り出す設計ガイドライン。
+「近づくという動作を操作化」した点が命名の核。
+
+### 軸（Axis）
+**このフレームワーク文脈での定義:** 人間が保持する判断の基準・方向性。幾何学的な軸（座標軸）ではない。
+AIのベクトル空間に基準軸は存在しない。「軸」はあくまで人間側が持つもの。
+
+### 軸語彙（Axis Words）
+確率密度の偏りを作る語彙。意味空間に対して「距離操作」を行う道具。
+プロンプト内に配置することでAI応答を特定方向の近傍に引き寄せる。
+（参照: `axis-log-01/axis-words-magnet-map.md`）
+
+### 意味空間（Semantic Space）
+AIの内部ベクトル空間。基準軸は存在しない。確率密度の分布として理解する。
+「軸がある」ように見えるのは、軸語彙による偏りの結果。
+
+### 距離操作（Distance Manipulation）
+軸語彙によって意味空間の確率密度を偏らせ、AI応答を意図方向の近傍に引き寄せる操作。
+「狙い撃ち」の実態。偏り誘導とも呼ぶ。
+
+### 偏り誘導（Bias Induction）
+距離操作の別名。より正確な表現。
+確率密度を「集める」のではなく「傾ける」。点への収束ではなく場の歪曲。
+
+### 人間の軸レンジ（Human Axis Range）
+人間が保持する判断範囲。意図・優先順位・許容範囲を含む。
+AIの応答空間と重ねる対象。
+
+### 重なり領域（Overlap Zone）
+人間の軸レンジとAIの応答空間の論理和部分。
+Approach Axisが動的に作り出す対象。ここにAI応答が落ちていれば Success。
+
+---
+
+## 状態・評価用語
+
+### Approach Failure
+ハルシネーションの定義。重力場テンソルモデルでは「地形崩壊」。
+軸語彙による傾斜が強すぎた結果、AI応答が人間の軸レンジ外に逸脱した状態。
+対処: 即停止 → 根拠トレース → 不可侵領域再強化 → 再設計。
+（参照: `axis-log-01/approach-axis-framework.md` §状態モデル）
+
+### 品質スコア
+0–100。自動評価＋人的レビューで算出。
+Success: ≥90 / Partial: 70–89 / Failure: <70 または ハルシネーション検出。
+
+### 不可侵領域（Constraint Zone）
+AIに絶対に踏み込ませない領域。Failure検出時に再強化する。
+プロンプトの `applyConstraint()` で設定。
+
+### Lock
+合意領域を固定し、以降変更しない状態。Handoff前に実施。
+
+### Handoff
+知識移転の分岐点（終点ではない）。次の処理が始まる起点。
+「何をする/しない」が判断できる状態を渡す。
+（参照: `axis-log-03/integrated_knowledge.md` §IK07）
+
+### AIプロファイル
+使用モデルの特性定義。軸語彙の効き方がモデルにより異なるため事前に把握する。
+例: Gemini=意図方向崩れやすい / Claude=抽象度維持必要 / GPT=起点明確で十分。
+
+---
+
+## 説明モデル・比喩
+
+### 重力場テンソルモデル（Gravity Tensor Model）
+AXIS動作の説明モデル。AI内部=多様体（曲がった地形）/ 軸語彙=傾斜装置 / ハルシネーション=地形崩壊。
+論文対応: EBM（エネルギーベースモデル）。
+（参照: `axis-log-01/gravity-tensor-model.md`）
+
+### 散弾銃→狙い撃ち
+導入比喩。軸なし指示=散弾銃（偶然ヒット）/ AXIS=狙い撃ち（距離操作でヒット率向上）。
+
+### 媒質三分割（Medium Trifurcation）
+AI内部の説明モデル。AI=水槽 / 意味空間=水 / パラメータ=水の性質。
+重力場テンソルモデルの別角度。水槽→海へのスケールアップ版もあり（閉じた系→開いた系）。
+（参照: `axis-log-02/integrated_knowledge.md`）
+
+### 意味空間歪曲装置（Semantic Space Distortion Device）
+Axisの別名定義（log03確定版）。ワープモデルとも呼ぶ。
+重力場テンソルモデルと同一概念の別表現。説明対象に応じて使い分ける。
+（参照: `axis-log-03/integrated_knowledge.md` §IK03）
+
+---
+
+## フレームワーク構造用語
+
+### 5軸（AXIS 5 Dimensions）
+確定版。Intent / Abstraction / Boundary / Priority / Direction + Sequence（補助）。
+（参照: `axis-log-04/integrated_knowledge.md` §T01）
+
+### Magnet Map（マグネットマップ）
+各軸語彙の効力優先度マップ。Layer 2に位置する。
+（参照: `axis-log-01/axis-words-magnet-map.md`）
+
+### 3レイヤー構造
+- Layer 1 Axis Words: 軸語彙の定義
+- Layer 2 Magnet Map: 語彙の効力優先度
+- Layer 4 Templates: 運用カード・Handoffテンプレート
+
+---
+
+## 外部参照・関連概念
+
+### CLEAR
+形式層のフレームワーク。何をどう書くかを規定。
+AXISとの関係: **競合なし。異なるレイヤー。** AXIS設計後にCLEARで形式を整える。
+AXIS=どこへ向かわせるか / CLEAR=どう書くか。
+（参照: `axis-log-04/integrated_knowledge.md` §KN-MASTER-02）
+
+### Cokes（コークス）
+上位体系。知識整理工学の全体論。Axisを包含する。
+関係: Cokes=憲法 / Axis=法律。Axisを Cokesに吸収させると各体系の純度が下がる（NG）。
+（参照: `axis-log-01/cokes-design-philosophy.md` §CokesとApproach Axisの関係）
+
+### Fable
+人間の未知を扱うTips集。Axisと並列関係。
+Axis=AI側の未知を扱う操作体系 / Fable=自分が何を知らないかを確認するTips集。
+（参照: `axis-log-03/integrated_knowledge.md` §IK04）
+
+### EBM（エネルギーベースモデル）
+重力場テンソルモデルの論文的裏付け。エネルギー地形の最小値方向=AI応答の偏り方向。
+
+### Executor × Advisor協調構造
+Executor（Sonnet等）: 実行・生成担当 / Advisor（Fable5等）: 骨格抽出・判断基準定義担当。
+Axisがこの協調を支える構造的基盤。
+（参照: `axis-log-02/integrated_knowledge.md` §KN18）
+
+---
+
+## 注意：使ってはいけない表現
+
+| NG表現 | 理由 | 代替 |
+|--------|------|------|
+| 「AIの軸」 | ベクトル空間に軸は存在しない | 「AI応答空間の偏り」 |
+| 「軸を設定する」（AI側に） | 人間側が軸を保持する構造と矛盾 | 「軸語彙で偏りを作る」 |
+| 「AIが理解する」 | 理解ではなく確率密度の偏り | 「AIが引き寄せられる」 |
+| 「プロンプトを改善する」 | 目的が曖昧 | 「距離操作を設計する」 |
