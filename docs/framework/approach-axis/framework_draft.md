@@ -34,8 +34,11 @@
 | ファイル | 役割 |
 |---------|------|
 | [glossary.md](glossary.md) | 用語・比喩定義の正本 |
+| [drafts/terrain-magnetic-model.md](drafts/terrain-magnetic-model.md) | 地形磁力モデル（第2章・第3章の詳細。旧: knowledge/axis-log-01/gravity-tensor-model.md） |
 | [drafts/model_comparison_axis.md](drafts/model_comparison_axis.md) | 製造元比較軸（第5章・第8章の詳細） |
 | [drafts/metaphor_catalog.md](drafts/metaphor_catalog.md) | 比喩カタログ |
+| [incidents/](incidents/) | AIオペレーションインシデント記録 |
+| [lessons/](lessons/) | インシデントから抽出した運用ルール |
 
 ---
 
