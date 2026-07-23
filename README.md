@@ -19,6 +19,7 @@ Cokesは、楽して、いいモノを作るために、人間が道具・仕組
 - Cokes版仕様（第1版） → specification.md
 - CQSE期の仕様・問題提起 → specification_cqse.md（履歴として保持）
 - 参考文献 → references.md
+- Approach Axis Framework → docs/framework/approach-axis
 - 生ログなど → docs
 
 まずは philosophy.md を読むことで、全体像がつかめます。
@@ -36,6 +37,14 @@ cokes/
 ├── specification_cqse.md
 ├── glossary.md
 ├── references.md
-└── docs/
-    ├── note-draft/
-    └── chat-archives/
+├── docs/
+│   ├── chat-archives/     生ログ（axis-log-01〜04, cqse-log-01, tide-logs-01）
+│   ├── chat-summary/      生ログの要約
+│   ├── distillation/      要約からのテーマ抽出（incident / log_topics / workflow）
+│   ├── knowledge/         テーマ抽出からの再利用可能な知識ユニット
+│   ├── framework/         知識を統合した実装ドキュメント
+│   │   └── approach-axis/ Approach Axis Framework（README.mdあり）
+│   └── note-draft/        note公開用ドラフト
+└── tools/                 ログ変換などの作業ツール（README.mdあり）
+    ├── cli/
+    └── log_transformation/
